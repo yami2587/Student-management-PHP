@@ -1,11 +1,11 @@
 <?php
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
 }
 
-if(!isset($_SESSION['admin_logged_in']) && basename($_SERVER['PHP_SELF']) != "login.php"){
-    header("Location: login.php");
-    exit;
+if (!isset($_SESSION['admin_logged_in']) && basename($_SERVER['PHP_SELF']) != "login.php") {
+  header("Location: login.php");
+  exit;
 }
 ?>
 
@@ -26,6 +26,7 @@ if(!isset($_SESSION['admin_logged_in']) && basename($_SERVER['PHP_SELF']) != "lo
         <li class="nav-item"><a class="nav-link text-white" href="Dashboard.php">Students</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="all_class.php">Classes</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="acadmic_year.php">Session</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="trash_students.php">Trash</a></li>
       </ul>
 
       <a href="logout.php" class="btn btn-light btn-sm">Logout</a>

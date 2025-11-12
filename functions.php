@@ -4,14 +4,16 @@ require_once "./db.php";
 function getStudents() {
     global $conn;
     $sql = "SELECT s.*, 
-            c.class_name, c.section, 
-            ss.start_year, ss.end_year
+                   c.class_name, c.section, 
+                   ss.start_year, ss.end_year
             FROM students s
             JOIN class_master c ON s.class_id = c.class_id
             JOIN session_master ss ON s.session_id = ss.session_id
+            WHERE s.is_deleted = 0
             ORDER BY s.student_id DESC";
-    return mysqli_query($conn, $sql);
+    return $conn->query($sql);
 }
+
 
 
 function getclasses() {

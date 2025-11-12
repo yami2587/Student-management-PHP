@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
     $image_name = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
-    $upload_path = "uploads/" . $image_name;
+    $upload_path = "images/" . $image_name;
     move_uploaded_file($tmp_name, $upload_path);
 
     $sql = "INSERT INTO students (roll_no, student_name, image, class_id, session_id, contact_number, address, details, guardian_name, guardian_number, dob)
